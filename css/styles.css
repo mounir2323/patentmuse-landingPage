@@ -63,11 +63,6 @@
  *      ## about photo
  *      ## about process
  * # services
- * # portfolio
- *      ## portfolio list
- * # clients
- *      ## clients slider
- *      ## testimonials
  * # contact
  * # footer
  *      ## footer block
@@ -473,6 +468,7 @@ button, select {
 
 button, [type="button"], [type="reset"], [type="submit"] {
     -webkit-appearance: button;
+    appearance: button;
 }
 
 /* Remove the inner border and padding in Firefox. */
@@ -549,6 +545,7 @@ textarea {
 
 [type="search"] {
     -webkit-appearance: textfield;
+    appearance: textfield;
     /* 1 */
     outline-offset: -2px;
     /* 2 */
@@ -4135,7 +4132,8 @@ html.no-csstransitions .s-hero__content {
 
 @media screen and (max-width: 900px) {
     .s-about__photo-block {
-        display: none;
+        display: block;
+        margin-top: var(--vspace-1);
     }
 }
 
@@ -4242,20 +4240,16 @@ html.no-csstransitions .s-hero__content {
 
 
 /* ===================================================================
- * # portfolio
+ * # contact
  *
  * ------------------------------------------------------------------- */
-.s-portfolio {
-    background-color: var(--color-bg);
-    padding-top: calc(7 * var(--space));
-    padding-bottom: 0;
+.s-contact {
+    background-color: var(--color-1);
+    padding-top: calc(6 * var(--space));
+    padding-bottom: var(--vspace-2);
 }
 
-
-/* ------------------------------------------------------------------- 
- * ## portfolio list
- * ------------------------------------------------------------------- */
-.s-portfolio__list {
+.s-contact__top .h6 {
     max-width: calc(var(--width-max) + 40px);
     padding-top: var(--vspace-1_5);
 }
