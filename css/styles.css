@@ -4094,7 +4094,7 @@ html.no-csstransitions .s-hero__content {
     font-weight: 600;
     text-align: center;
     color: white;
-    background-color: var(--color-1);
+    background-color: #3C4C52;
     height: var(--vspace-1_5);
     width: var(--vspace-1_5);
     line-height: var(--vspace-1_5);
@@ -4185,27 +4185,51 @@ html.no-csstransitions .s-hero__content {
 
 .s-services .item-service {
     margin-bottom: 0;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.s-services .item-service .item-title {
+    margin-top: 0;
+    margin-bottom: var(--vspace-0_5);
+    text-align: center;
+    padding-left: 0;
+}
+
+.s-services .item-service p {
+    flex-grow: 1;
+    display: flex;
+    align-items: flex-start;
 }
 
 .service-icon {
     display: block;
-    width: calc(2.25 * var(--space));
-    height: calc(2.25 * var(--space));
+    width: 80px;
+    height: 80px;
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
+    margin: 0 auto var(--vspace-0_75) auto;
 }
 
 .service-icon--product-design {
-    background-image: url(../images/icons/services/icon-product-design.svg);
+    background-image: url(../images/icons/secure-logo.svg);
+    width: 80px;
+    height: 80px;
 }
 
 .service-icon--branding {
-    background-image: url(../images/icons/services/icon-branding.svg);
+    background-image: url(../images/icons/ai-powred-loog.svg);
+    width: 80px;
+    height: 80px;
 }
 
 .service-icon--frontend {
-    background-image: url(../images/icons/services/icon-frontend.svg);
+    background-image: url(../images/icons/fast-logo.svg);
+    width: 100px;
+    height: 100px;
 }
 
 .service-icon--research {
@@ -4218,6 +4242,16 @@ html.no-csstransitions .s-hero__content {
 
 .service-icon--ecommerce {
     background-image: url(../images/icons/services/icon-ecommerce.svg);
+}
+
+/* Equal height columns for services */
+.s-services .row.item-list {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.s-services .row.item-list > .column {
+    display: flex;
 }
 
 
