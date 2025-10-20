@@ -4274,6 +4274,53 @@ html.no-csstransitions .s-hero__content {
 
 
 /* ===================================================================
+ * # connect with us
+ *
+ * ------------------------------------------------------------------- */
+.s-connect {
+    background-color: var(--color-bg);
+    padding-top: calc(6 * var(--space));
+    padding-bottom: calc(6 * var(--space));
+}
+
+.s-connect .display-1 {
+    margin-bottom: var(--vspace-2);
+}
+
+/* LinkedIn logo styling */
+.linkedin-logo {
+    width: 150px;
+    height: auto;
+    filter: brightness(0.4);
+    transition: filter 0.3s ease, transform 0.3s ease;
+}
+
+.linkedin-link:hover .linkedin-logo {
+    filter: brightness(1);
+    transform: scale(1.05);
+}
+
+/* ------------------------------------------------------------------- 
+ * responsive:
+ * connect with us
+ * ------------------------------------------------------------------- */
+@media screen and (max-width: 1200px) {
+    .s-connect {
+        padding-top: calc(5 * var(--space));
+        padding-bottom: calc(5 * var(--space));
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .s-connect {
+        padding-top: var(--vspace-4);
+        padding-bottom: var(--vspace-4);
+    }
+}
+
+
+
+/* ===================================================================
  * # contact
  *
  * ------------------------------------------------------------------- */
