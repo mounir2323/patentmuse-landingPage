@@ -1,12 +1,15 @@
 # Team Photos
 
-## Required Images
+## Required Images for 3D Carousel
 
 Place team member photos in this folder with the following names:
 
-- `member-1.jpg` - First team member (Co-Founder & CEO)
-- `member-2.jpg` - Second team member (Co-Founder & CTO)
-- `member-3.jpg` - Third team member (Lead Data Scientist)
+- `member-1.jpg` - John Doe (Co-Founder & CEO)
+- `member-2.jpg` - Jane Smith (Co-Founder & CTO)
+- `member-3.jpg` - Michael Chen (Lead Data Scientist)
+- `member-4.jpg` - Sarah Johnson (Head of Product)
+- `member-5.jpg` - David Martinez (Lead Engineer)
+- `member-6.jpg` - Emma Wilson (AI Research Lead)
 
 ## Image Specifications
 
@@ -23,7 +26,8 @@ Place team member photos in this folder with the following names:
 3. Use the same background style for visual consistency
 4. Photos should be clear and well-lit
 5. Consider using a professional photographer
+6. Images will be displayed in circular frames (140px diameter)
 
 ## Placeholder
 
-Until real photos are added, the images will show a gray placeholder background.
+Until real photos are added, the images will show a gray placeholder background with gradient.

@@ -669,11 +669,432 @@ button,
 
 /* Remove animations on mobile for better performance */
 @media screen and (max-width: 600px) {
-    *,
-    *::before,
-    *::after {
+    *:not(.carousel-card):not(.carousel-3d-scene),
+    *:not(.carousel-card):not(.carousel-3d-scene)::before,
+    *:not(.carousel-card):not(.carousel-3d-scene)::after {
         animation-duration: 0.01ms !important;
         animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
+    }
+}
+
+/* ================================================================
+   3D CAROUSEL TEAM SECTION
+   ================================================================ */
+
+/* Container principal */
+.s-team {
+    padding: var(--vspace-4) 0;
+    background-color: var(--color-bg);
+    overflow: hidden;
+}
+
+.carousel-3d-container {
+    position: relative;
+    width: 100%;
+    height: 650px;
+    perspective: 2000px;
+    margin: var(--vspace-3) auto;
+    max-width: 1400px;
+}
+
+/* Scène 3D */
+.carousel-3d-scene {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    /* Transition contrôlée par JavaScript pour snap fluide */
+}
+
+/* Cartes individuelles */
+.carousel-card {
+    position: absolute;
+    width: 380px;
+    height: 520px;
+    left: 50%;
+    top: 50%;
+    transform-style: preserve-3d;
+    cursor: pointer;
+    /* Pas de transition ici - les effets sont appliqués directement */
+}
+
+/* Card de membre */
+.team-card {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.3),
+        0 0 0 1px rgba(255, 255, 255, 0.1) inset;
+    padding: 3rem 2.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    transform: scale(0.85);
+    filter: brightness(0.6) blur(2px);
+}
+
+.team-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(138, 79, 52, 0.1), rgba(138, 79, 52, 0.05));
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    z-index: 0;
+}
+
+/* Carte active - zoom + luminosité + netteté */
+.carousel-card.active .team-card {
+    transform: scale(1);
+    filter: brightness(1.2) blur(0);
+}
+
+.carousel-card.active .team-card::before {
+    opacity: 1;
+}
+
+/* Photo membre */
+.team-card__photo {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 4px solid rgba(138, 79, 52, 0.6);
+    box-shadow: 
+        0 4px 20px rgba(138, 79, 52, 0.4),
+        0 0 0 2px rgba(255, 255, 255, 0.1);
+    margin-bottom: 2rem;
+    position: relative;
+    z-index: 1;
+    background: linear-gradient(135deg, #222F39, #3C4C52);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.team-card__photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.carousel-card.active .team-card__photo {
+    border-color: var(--color-2);
+    box-shadow: 
+        0 8px 40px rgba(138, 79, 52, 0.7),
+        0 0 0 3px rgba(255, 255, 255, 0.3);
+    transform: scale(1.08);
+}
+
+.carousel-card.active .team-card__photo img {
+    transform: scale(1.12);
+}
+
+/* Texte */
+.team-card__name {
+    font-family: var(--font-2);
+    font-size: 2.4rem;
+    font-weight: 700;
+    color: var(--color-1);
+    margin: 0 0 0.5rem 0;
+    position: relative;
+    z-index: 1;
+    transition: all 0.4s ease;
+}
+
+.team-card__role {
+    font-family: var(--font-1);
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--color-2);
+    margin: 0 0 1.5rem 0;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    position: relative;
+    z-index: 1;
+}
+
+.team-card__bio {
+    font-family: var(--font-1);
+    font-size: 1.5rem;
+    line-height: 1.7;
+    color: rgba(243, 243, 242, 0.8);
+    margin: 0 0 2rem 0;
+    position: relative;
+    z-index: 1;
+    flex-grow: 1;
+}
+
+/* Social icons */
+.team-card__social {
+    display: flex;
+    gap: 1.5rem;
+    position: relative;
+    z-index: 1;
+}
+
+.team-card__social a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: rgba(138, 79, 52, 0.3);
+    border: 1px solid rgba(138, 79, 52, 0.5);
+    color: var(--color-1);
+    font-size: 1.8rem;
+    transition: all 0.3s ease;
+}
+
+.team-card__social a:hover,
+.team-card__social a:focus {
+    background: var(--color-2);
+    border-color: var(--color-2);
+    color: white;
+    transform: translateY(-3px) scale(1.1);
+    box-shadow: 0 6px 20px rgba(138, 79, 52, 0.5);
+}
+
+/* Navigation arrows */
+.carousel-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 100;
+    width: 60px;
+    height: 60px;
+    border: none;
+    border-radius: 50%;
+    background: rgba(138, 79, 52, 0.8);
+    backdrop-filter: blur(10px);
+    color: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.carousel-nav:hover,
+.carousel-nav:focus {
+    background: var(--color-2);
+    transform: translateY(-50%) scale(1.1);
+    box-shadow: 0 6px 30px rgba(138, 79, 52, 0.5);
+}
+
+.carousel-nav svg {
+    width: 28px;
+    height: 28px;
+}
+
+.carousel-nav--prev {
+    left: 5%;
+}
+
+.carousel-nav--next {
+    right: 5%;
+}
+
+/* Indicateurs de progression */
+.carousel-indicators {
+    position: absolute;
+    bottom: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 12px;
+    z-index: 100;
+}
+
+.indicator {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(243, 243, 242, 0.3);
+    border: 2px solid rgba(138, 79, 52, 0.5);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.indicator:hover {
+    background: rgba(138, 79, 52, 0.6);
+    transform: scale(1.2);
+}
+
+.indicator.active {
+    background: var(--color-2);
+    border-color: var(--color-2);
+    width: 32px;
+    border-radius: 6px;
+    box-shadow: 0 0 15px rgba(138, 79, 52, 0.8);
+    transform: scale(1.1);
+}
+
+/* États des cartes selon leur position */
+.carousel-card.active {
+    z-index: 50;
+}
+
+/* Transitions smooth pour tout le contenu */
+.team-card__name,
+.team-card__role,
+.team-card__bio,
+.team-card__social {
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Amélioration de la visibilité de la carte active */
+.carousel-card.active .team-card__name {
+    color: var(--color-1);
+    text-shadow: 0 2px 10px rgba(138, 79, 52, 0.3);
+}
+
+.carousel-card.active .team-card__role {
+    color: var(--color-2);
+    text-shadow: 0 1px 5px rgba(138, 79, 52, 0.2);
+}
+
+.carousel-card.active .team-card__bio {
+    color: rgba(243, 243, 242, 0.95);
+}
+
+/* Responsive Design */
+@media screen and (max-width: 1200px) {
+    .carousel-3d-container {
+        height: 600px;
+    }
+    
+    .carousel-card {
+        width: 340px;
+        height: 480px;
+    }
+    
+    .carousel-nav {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .carousel-nav svg {
+        width: 24px;
+        height: 24px;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .carousel-3d-container {
+        height: 550px;
+        perspective: 1500px;
+    }
+    
+    .carousel-card {
+        width: 300px;
+        height: 440px;
+    }
+    
+    .team-card {
+        padding: 2.5rem 2rem;
+    }
+    
+    .team-card__photo {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .team-card__name {
+        font-size: 2rem;
+    }
+    
+    .team-card__bio {
+        font-size: 1.4rem;
+    }
+    
+    .carousel-nav--prev {
+        left: 2%;
+    }
+    
+    .carousel-nav--next {
+        right: 2%;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .carousel-3d-container {
+        height: 500px;
+        perspective: 1000px;
+    }
+    
+    .carousel-card {
+        width: 280px;
+        height: 420px;
+    }
+    
+    .team-card {
+        padding: 2rem 1.5rem;
+    }
+    
+    .team-card__photo {
+        width: 100px;
+        height: 100px;
+        margin-bottom: 1.5rem;
+    }
+    
+    .team-card__name {
+        font-size: 1.8rem;
+    }
+    
+    .team-card__role {
+        font-size: 1.2rem;
+    }
+    
+    .team-card__bio {
+        font-size: 1.3rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .team-card__social a {
+        width: 40px;
+        height: 40px;
+        font-size: 1.6rem;
+    }
+    
+    .carousel-nav {
+        width: 45px;
+        height: 45px;
+    }
+    
+    .carousel-nav svg {
+        width: 20px;
+        height: 20px;
+    }
+    
+    .carousel-indicators {
+        bottom: -40px;
+        gap: 8px;
+    }
+    
+    .indicator {
+        width: 10px;
+        height: 10px;
+    }
+    
+    .indicator.active {
+        width: 24px;
     }
 }
