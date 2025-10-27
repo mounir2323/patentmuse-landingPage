@@ -17,6 +17,7 @@
     ================================================== -->
     <link rel="stylesheet" href="css/styles.css?v=20">
     <link rel="stylesheet" href="css/vendor.css">
+    <link rel="stylesheet" href="css/custom-fixes.css?v=1">
 
     <!-- script
     ================================================== -->
@@ -83,14 +84,14 @@
     <section id="hero" class="s-hero target-section">
 
         <div class="s-hero__bg">
-            <div class="gradient-overlay"></div>
+            <!-- Background sans overlay pour garder la couleur uniforme -->
         </div>
 
         <div class="row s-hero__content">
             <div class="column">
 
-                <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 40px;">
-                    <div style="flex: 0 0 auto;">
+                <div class="hero-layout">
+                    <div class="hero-content-wrapper">
                         <h1>Hello.</h1>
                         <div class="s-hero__content-about">
 
@@ -102,17 +103,15 @@
             
                             <footer>
                                 <div class="s-hero__content-social">
-                                    <a href="#0"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
-                                    <a href="#0"><i class="fab fa-twitter" aria-hidden="true"></i></a>
-                                    <a href="#0"><i class="fab fa-instagram" aria-hidden="true"></i></a>
-                                    <a href="#0"><i class="fab fa-dribbble" aria-hidden="true"></i></a>
+                                    <a href="https://www.linkedin.com/company/patentmuse/" target="_blank" rel="noopener noreferrer" aria-label="Follow us on LinkedIn"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
+                                    <a href="mailto:contact@patentmuse.com" aria-label="Email us"><i class="fas fa-envelope" aria-hidden="true"></i></a>
                                 </div>
                             </footer>
                         </div>
                     </div>
                     
-                    <div style="flex: 0 0 auto; display: flex; align-items: flex-start;">
-                        <img src="images/logo.svg" alt="PatentMuse Logo" style="max-width: 250px; height: auto; margin-top: 60px;">
+                    <div class="hero-logo-wrapper">
+                        <img src="images/logo.svg" alt="PatentMuse Logo" class="hero-logo">
                     </div>
                 </div>
 
@@ -265,8 +264,8 @@
         <div class="row" style="justify-content: center;">
             <div class="column" style="text-align: center;">
                 <div data-aos="fade-up" style="display: inline-block;">
-                    <a href="https://www.linkedin.com/company/patentmuse/" target="_blank" rel="noopener noreferrer" title="Visit PatentMuse on LinkedIn" class="linkedin-link">
-                        <img src="images/icons/clients/linkedin.svg" alt="LinkedIn" class="linkedin-logo" />
+                    <a href="https://www.linkedin.com/company/patentmuse/" target="_blank" rel="noopener noreferrer" title="Visit PatentMuse on LinkedIn" class="linkedin-link" aria-label="Visit PatentMuse on LinkedIn">
+                        <img src="images/icons/clients/linkedin.svg" alt="LinkedIn Logo - Follow PatentMuse" class="linkedin-logo" />
                     </a>
                 </div>
             </div>
@@ -274,89 +273,69 @@
 
     </section> <!-- end s-connect -->
 
-
-
-
-
-
-
-
-
-    <!-- contact
-    ================================================== -->
-    <section class="s-contact">
-
-        <div class="row narrower s-contact__top h-text-center">
-            <div class="column">
-                <h3 class="h6">Get In Touch</h3>
-                <h1 class="display-1">
-                Have an idea or an epic project in mind? Talk to
-                us. Let us work together and make something great.
-                Shoot us a message at
-                </h1>
-            </div>
-        </div> <!-- s-footer__top -->
-
-        <div class="row h-text-center">
-            <div class="column">
-                <p class="s-contact__email">
-                    <a href="mailto:contact@patentmuse.com">contact@patentmuse.com</a>
-                </p>
-            </div>
-        </div>
-
-    </section>  <!-- end s-contact -->
-
     <!-- footer
     ================================================== -->
     <footer class="s-footer">
-        <div class="row row-y-top">
+        
+        <div class="row">
+            <div class="column large-12">
+                <div class="s-footer__content">
+                    <div class="row">
+                        <div class="column large-6 medium-12 mob-12">
+                            <h4>PatentMuse</h4>
+                            <p>
+                                AI-powered semantic search engine for patents.<br>
+                                Fast, secure, and intelligent patent research.
+                            </p>
+                        </div>
+                        
+                        <div class="column large-3 medium-6 mob-12">
+                            <h4>Contact</h4>
+                            <ul class="s-footer__list">
+                                <li><a href="mailto:contact@patentmuse.com">contact@patentmuse.com</a></li>
+                                <li><a href="https://www.linkedin.com/company/patentmuse/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+                            </ul>
+                        </div>
 
-            <div class="column large-8 medium-12">
-                <div class="row">
-                    <div class="column large-7 tab-12 s-footer__block">
-                        <h4 class="h6">Where to Find Us</h4>
-        
-                        <p>
-                        1600 Amphitheatre Parkway <br>
-                        Mountain View, California <br>
-                        94043  US <br>
-                        <a href="tel:197-543-2345">+197 543 2345</a>
-                        </p>
-                    </div>
-        
-                    <div class="column large-5 tab-12 s-footer__block">
-                        <h4 class="h6">Follow Us</h4>
-        
-                        <ul class="s-footer__list">
-                            <li><a href="#0">Facebook</a></li>
-                            <li><a href="#0">Twitter</a></li>
-                            <li><a href="#0">Instagram</a></li>
-                            <li><a href="#0">Dribbble</a></li>
-                        </ul>
+                        <div class="column large-3 medium-6 mob-12">
+                            <h4>Quick Links</h4>
+                            <ul class="s-footer__list">
+                                <li><a class="smoothscroll" href="#hero">Home</a></li>
+                                <li><a class="smoothscroll" href="#about">About</a></li>
+                                <li><a class="smoothscroll" href="#services">Services</a></li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
-
-            <div class="column large-4 medium-12 s-footer__block--end">
-                <a href="mailto:contact@patentmuse.com" class="btn h-full-width">Let's Talk</a>
-
-                <div class="ss-copyright">
-                    <span>Copyright Flare 2020</span> 
-                    <span>Design by <a href="https://www.styleshout.com/">StyleShout</a> Distribution By <a href="https://themewagon.com">ThemeWagon</a></span>
-                </div>
-            </div>
-
-            <div class="ss-go-top">
-                <a class="smoothscroll" title="Back to Top" href="#top">
-                    top
-                </a>
-            </div> <!-- end ss-go-top -->
-
         </div>
-    </footer>
+
+        <div class="row s-footer__bottom">
+            <div class="column large-12">
+                <div class="ss-copyright">
+                    <span>&copy; 2025 PatentMuse</span> 
+                    <span>All Rights Reserved</span>
+                </div>
+
+                <div class="ss-go-top">
+                    <a class="smoothscroll" title="Back to Top" href="#top">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 0l8 9h-6v15h-4v-15h-6z"/></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </footer> <!-- end s-footer -->
 
 
+
+
+
+
+
+
+
+ 
     <!-- Java Script
     ================================================== -->
     <script src="js/jquery-3.2.1.min.js"></script>

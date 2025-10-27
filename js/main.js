@@ -70,24 +70,9 @@
 
             let loc = $WIN.scrollTop();
 
-            if (loc > triggerHeight) {
-                $hdr.addClass('sticky');
-            } else {
-                $hdr.removeClass('sticky');
-            }
-
-            if (loc > triggerHeight + 20) {
-                $hdr.addClass('offset');
-            } else {
-                $hdr.removeClass('offset');
-            }
-
-            if (loc > triggerHeight + 150) {
-                $hdr.addClass('scrolling');
-            } else {
-                $hdr.removeClass('scrolling');
-            }
-
+            // Header reste toujours visible et transparent
+            // Pas de changement de style au scroll
+            
         });
 
     };

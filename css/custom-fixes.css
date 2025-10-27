@@ -1,0 +1,515 @@
+/* ===================================================================
+ * # Custom Fixes for PatentMuse Landing Page
+ * ------------------------------------------------------------------- */
+
+/* Fix header to always stay transparent and visible */
+.s-header {
+    position: fixed !important;
+    background-color: rgba(34, 47, 57, 0.85) !important;
+    backdrop-filter: blur(10px) !important;
+    -webkit-backdrop-filter: blur(10px) !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5) !important;
+}
+
+/* Ensure header content stays visible */
+.s-header,
+.s-header.sticky,
+.s-header.offset,
+.s-header.scrolling {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: translateY(0) !important;
+    background-color: rgba(34, 47, 57, 0.85) !important;
+    backdrop-filter: blur(10px) !important;
+    -webkit-backdrop-filter: blur(10px) !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5) !important;
+}
+
+/* Keep button style consistent */
+.s-header__content .btn,
+.s-header.sticky .s-header__content .btn {
+    background-color: #3C4C52 !important;
+    border-color: #3C4C52 !important;
+    color: white !important;
+}
+
+.s-header__content .btn:hover,
+.s-header__content .btn:focus,
+.s-header.sticky .s-header__content .btn:hover,
+.s-header.sticky .s-header__content .btn:focus {
+    background-color: #2C3C42 !important;
+    border-color: #2C3C42 !important;
+    color: white !important;
+}
+
+.s-header__content .btn svg path,
+.s-header__content .btn:hover svg path,
+.s-header__content .btn:focus svg path {
+    fill: white !important;
+}
+
+/* Keep navigation link colors consistent */
+.s-header__nav a,
+.s-header.sticky .s-header__nav a {
+    color: var(--color-gray-8) !important;
+}
+
+.s-header__nav a:hover,
+.s-header__nav a:focus,
+.s-header.sticky .s-header__nav a:hover,
+.s-header.sticky .s-header__nav a:focus {
+    color: white !important;
+}
+
+/* Hero layout improvements */
+.hero-layout {
+    display: flex !important;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
+    width: 100% !important;
+    position: relative;
+    z-index: 2;
+    overflow: visible !important;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+}
+
+.hero-content-wrapper {
+    flex: 1 1 auto;
+    max-width: 800px;
+    min-width: 0;
+    overflow: visible !important;
+    width: 100%;
+}
+
+.hero-logo-wrapper {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    min-width: 250px;
+    overflow: visible !important;
+}
+
+.hero-logo {
+    max-width: 250px;
+    width: 100%;
+    height: auto;
+    margin-top: 0 !important;
+    transition: transform 0.3s ease;
+    display: block;
+}
+
+.hero-logo:hover {
+    transform: scale(1.05);
+}
+
+/* Assurer que le hero section ne déborde pas */
+.s-hero {
+    overflow: hidden !important;
+    position: relative;
+    padding-top: 5vh !important;
+    padding-bottom: 10vh !important;
+    min-height: 100vh !important;
+    display: flex !important;
+    align-items: center !important;
+}
+
+.s-hero__content {
+    overflow: visible !important;
+    position: relative;
+    z-index: 10;
+    padding-bottom: 00vh !important;
+}
+
+.s-hero .row {
+    overflow: visible !important;
+    width: 100% !important;
+}
+
+.s-hero .column {
+    overflow: visible !important;
+    width: 100% !important;
+}
+
+/* Background toujours plein écran */
+.s-hero__bg {
+    width: 100% !important;
+    height: 100% !important;
+    top: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    background-color: var(--color-bg) !important;
+    position: absolute !important;
+}
+
+/* Masquer le gradient overlay */
+.s-hero__bg::after,
+.s-hero__bg .gradient-overlay {
+    display: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+}
+
+/* Empêcher le background de changer de taille */
+@media screen and (max-width: 900px) {
+    .s-hero__bg {
+        width: 100% !important;
+        height: 100% !important;
+        top: 0 !important;
+        right: 0 !important;
+        bottom: 0 !important;
+        left: 0 !important;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .s-hero__bg {
+        width: 100% !important;
+        height: 100% !important;
+        top: 0 !important;
+        right: 0 !important;
+        bottom: 0 !important;
+        left: 0 !important;
+    }
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 1200px) {
+    .hero-logo {
+        max-width: 200px;
+        margin-top: 40px;
+    }
+    
+    .hero-content-wrapper {
+        max-width: 700px;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .hero-layout {
+        flex-direction: column;
+        gap: 30px;
+        align-items: center;
+        width: 100% !important;
+        margin-top: 0 !important;
+    }
+    
+    .hero-content-wrapper {
+        max-width: 100%;
+        width: 100% !important;
+        overflow: visible !important;
+    }
+    
+    .hero-logo-wrapper {
+        width: 100%;
+        justify-content: center;
+        order: -1; /* Met le logo en premier sur mobile */
+        min-width: auto;
+    }
+    
+    .hero-logo {
+        max-width: 180px;
+        margin-top: 0 !important;
+    }
+    
+    /* S'assurer que le background reste plein écran */
+    .s-hero__bg {
+        width: 100% !important;
+        height: 100% !important;
+        top: 0 !important;
+        right: 0 !important;
+        bottom: 0 !important;
+        left: 0 !important;
+    }
+    
+    /* Assurer que le texte est visible */
+    .s-hero__content h1,
+    .s-hero__content-about {
+        width: 100% !important;
+        overflow: visible !important;
+    }
+    
+    /* Ajuster le padding sur mobile */
+    .s-hero {
+        padding-top: 12vh !important;
+        padding-bottom: 3vh !important;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .hero-layout {
+        gap: 20px;
+        padding: 0;
+        width: 100% !important;
+    }
+    
+    .hero-logo {
+        max-width: 150px;
+        margin-top: 0 !important;
+    }
+    
+    .s-hero__content-about {
+        text-align: center;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        width: 100% !important;
+    }
+    
+    .s-hero__content-about footer {
+        text-align: center;
+    }
+    
+    .s-hero__content h1 {
+        text-align: center;
+        width: 100% !important;
+    }
+    
+    /* Réduire le padding pour éviter le débordement */
+    .s-hero__content {
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+    
+    .hero-content-wrapper {
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+    
+    /* Ajuster le padding sur petit mobile */
+    .s-hero {
+        padding-top: 10vh !important;
+        padding-bottom: 2vh !important;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .hero-logo {
+        max-width: 120px;
+        margin-top: 0 !important;
+    }
+    
+    .hero-layout {
+        gap: 15px;
+    }
+    
+    .s-hero__content h1 {
+        font-size: 24vw !important;
+    }
+    
+    .s-hero__content-about {
+        font-size: 2rem !important;
+    }
+    
+    /* Ajuster le padding sur très petit mobile */
+    .s-hero {
+        padding-top: 8vh !important;
+        padding-bottom: 1vh !important;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .hero-logo {
+        max-width: 120px;
+        margin-top: 0;
+    }
+    
+    .s-hero__content h1 {
+        text-align: center;
+    }
+}
+
+/* Improve social icons */
+.s-hero__content-social a {
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.s-hero__content-social a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 50%;
+    transform: translateX(-50%) scaleX(0);
+    width: 80%;
+    height: 2px;
+    background-color: var(--color-1-light);
+    transition: transform 0.3s ease;
+}
+
+.s-hero__content-social a:hover::after,
+.s-hero__content-social a:focus::after {
+    transform: translateX(-50%) scaleX(1);
+}
+
+/* Services section improvements */
+.s-services__services {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.s-services__services .item-service {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.s-services__services .item-service p {
+    flex-grow: 1;
+}
+
+/* LinkedIn logo hover effect */
+.linkedin-link {
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.linkedin-link:hover {
+    transform: translateY(-5px);
+}
+
+.linkedin-logo {
+    width: 150px;
+    height: auto;
+    filter: brightness(0.4);
+    transition: filter 0.3s ease, transform 0.3s ease;
+}
+
+.linkedin-link:hover .linkedin-logo {
+    filter: brightness(1);
+}
+
+/* Footer improvements */
+.s-footer {
+    background-color: var(--color-bg);
+    padding-top: calc(4 * var(--space));
+    padding-bottom: var(--vspace-2);
+}
+
+.s-footer__content {
+    padding-bottom: var(--vspace-2);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.s-footer h4 {
+    color: var(--color-1);
+    margin-bottom: var(--vspace-0_75);
+    font-size: var(--text-md);
+}
+
+.s-footer__list {
+    list-style: none;
+    margin: 0;
+}
+
+.s-footer__list li {
+    margin-bottom: var(--vspace-0_25);
+}
+
+.s-footer__list a {
+    color: var(--color-text);
+    transition: color 0.3s ease;
+}
+
+.s-footer__list a:hover,
+.s-footer__list a:focus {
+    color: var(--color-1-light);
+}
+
+.s-footer__bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: var(--vspace-1_5);
+}
+
+.ss-copyright {
+    font-size: var(--text-sm);
+    color: var(--color-gray-8);
+}
+
+.ss-copyright span::after {
+    content: "|";
+    margin: 0 1rem;
+}
+
+.ss-copyright span:last-child::after {
+    display: none;
+}
+
+.ss-go-top {
+    position: fixed;
+    bottom: 3rem;
+    right: 3rem;
+    z-index: 500;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.ss-go-top.link-is-visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.ss-go-top a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 6rem;
+    height: 6rem;
+    background-color: var(--color-1);
+    border-radius: 50%;
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.ss-go-top a:hover,
+.ss-go-top a:focus {
+    background-color: var(--color-1-light);
+    transform: translateY(-3px);
+}
+
+.ss-go-top a svg {
+    width: 2rem;
+    height: 2rem;
+}
+
+.ss-go-top a svg path {
+    fill: white;
+}
+
+/* Mobile menu improvements */
+@media screen and (max-width: 900px) {
+    .menu-is-open .s-header__content {
+        background-color: rgba(12, 11, 12, 0.98);
+        backdrop-filter: blur(10px);
+    }
+}
+
+/* Accessibility improvements */
+a:focus,
+button:focus {
+    outline: 2px solid var(--color-1);
+    outline-offset: 2px;
+}
+
+/* Smooth transitions for all interactive elements */
+a,
+button,
+.btn {
+    transition: all 0.3s ease;
+}
+
+/* Remove animations on mobile for better performance */
+@media screen and (max-width: 600px) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
