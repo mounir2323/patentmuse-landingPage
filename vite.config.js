@@ -2,7 +2,8 @@ import { defineConfig } from 'vite'
 
 export default defineConfig({
   root: './',
-  base: '/',
+  base: './',
+  publicDir: 'public',
   server: {
     port: 3000,
     open: true,
@@ -12,15 +13,14 @@ export default defineConfig({
     outDir: 'dist',
     assetsDir: 'assets',
     emptyOutDir: true,
+    copyPublicDir: true,
     rollupOptions: {
       input: {
         main: './index.html'
+      },
+      output: {
+        manualChunks: undefined
       }
-    }
-  },
-  resolve: {
-    alias: {
-      '@': '/src'
     }
   }
 })

@@ -1,0 +1,867 @@
+/* ===================================================================
+ * # Custom Fixes for PatentMuse Landing Page - OPTIMIZED VERSION
+ * ------------------------------------------------------------------- */
+
+/* ===================================================================
+ * HEADER - Fixed & Transparent
+ * ------------------------------------------------------------------- */
+.s-header {
+    position: fixed;
+    background-color: rgba(34, 47, 57, 0.85);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+}
+
+/* Ensure header stays visible in all states */
+.s-header.sticky,
+.s-header.offset,
+.s-header.scrolling {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    background-color: rgba(34, 47, 57, 0.85);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+/* Header button styling */
+.s-header__content .btn,
+.s-header.sticky .s-header__content .btn {
+    background-color: #3C4C52;
+    border-color: #3C4C52;
+    color: white;
+}
+
+.s-header__content .btn:hover,
+.s-header__content .btn:focus,
+.s-header.sticky .s-header__content .btn:hover,
+.s-header.sticky .s-header__content .btn:focus {
+    background-color: #2C3C42;
+    border-color: #2C3C42;
+    color: white;
+}
+
+.s-header__content .btn svg path,
+.s-header__content .btn:hover svg path,
+.s-header__content .btn:focus svg path {
+    fill: white;
+}
+
+/* Navigation link colors */
+.s-header__nav a,
+.s-header.sticky .s-header__nav a {
+    color: var(--color-gray-8);
+}
+
+.s-header__nav a:hover,
+.s-header__nav a:focus,
+.s-header.sticky .s-header__nav a:hover,
+.s-header.sticky .s-header__nav a:focus {
+    color: white;
+}
+
+/* ===================================================================
+ * HERO SECTION - Layout with Logo
+ * ------------------------------------------------------------------- */
+.s-hero {
+    position: relative;
+    padding-top: 15vh;
+    padding-bottom: 10vh;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+}
+
+.s-hero__content {
+    position: relative;
+    z-index: 10;
+    padding-bottom: 5vh;
+}
+
+.s-hero .row,
+.s-hero .column {
+    width: 100%;
+}
+
+/* Hero background - always full screen */
+.s-hero__bg {
+    width: 100%;
+    height: 100%;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: var(--color-bg);
+    position: absolute;
+    z-index: 1;
+}
+
+/* Hide gradient overlay */
+.s-hero__bg::after,
+.s-hero__bg .gradient-overlay {
+    display: none;
+    opacity: 0;
+    visibility: hidden;
+}
+
+/* Hero layout with logo */
+.hero-layout {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
+    width: 100%;
+    position: relative;
+    z-index: 2;
+}
+
+.hero-content-wrapper {
+    flex: 1 1 auto;
+    max-width: 800px;
+    min-width: 0;
+    width: 100%;
+}
+
+.hero-logo-wrapper {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    min-width: 250px;
+    z-index: 3;
+}
+
+.hero-logo {
+    max-width: 250px;
+    width: 100%;
+    height: auto;
+    transition: transform 0.3s ease;
+    display: block;
+}
+
+.hero-logo:hover {
+    transform: scale(1.05);
+}
+
+/* Social icons improvements */
+.s-hero__content-social a {
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.s-hero__content-social a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 50%;
+    transform: translateX(-50%) scaleX(0);
+    width: 80%;
+    height: 2px;
+    background-color: var(--color-1-light);
+    transition: transform 0.3s ease;
+}
+
+.s-hero__content-social a:hover::after,
+.s-hero__content-social a:focus::after {
+    transform: translateX(-50%) scaleX(1);
+}
+
+/* ===================================================================
+ * RESPONSIVE - Hero Section
+ * ------------------------------------------------------------------- */
+@media screen and (max-width: 1200px) {
+    .hero-logo {
+        max-width: 200px;
+    }
+    
+    .hero-content-wrapper {
+        max-width: 700px;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .s-hero {
+        padding-top: 14vh;
+        padding-bottom: 8vh;
+    }
+
+    .hero-layout {
+        flex-direction: column;
+        gap: 30px;
+        align-items: center;
+        width: 100%;
+    }
+    
+    .hero-content-wrapper {
+        max-width: 100%;
+        width: 100%;
+    }
+    
+    .hero-logo-wrapper {
+        width: 100%;
+        justify-content: center;
+        order: -1;
+        min-width: auto;
+    }
+    
+    .hero-logo {
+        max-width: 180px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .s-hero {
+        padding-top: 12vh;
+        padding-bottom: 6vh;
+    }
+
+    .hero-layout {
+        gap: 20px;
+        padding: 0;
+    }
+    
+    .hero-logo {
+        max-width: 150px;
+    }
+    
+    .s-hero__content-about {
+        text-align: center;
+        padding-left: 0;
+        padding-right: 0;
+        width: 100%;
+    }
+    
+    .s-hero__content-about footer {
+        text-align: center;
+    }
+    
+    .s-hero__content h1 {
+        text-align: center;
+        font-size: clamp(3rem, 8vw, 5rem);
+    }
+    
+    .s-hero__content {
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+    
+    .hero-content-wrapper {
+        width: 100%;
+        max-width: 100%;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .s-hero {
+        padding-top: 10vh;
+        padding-bottom: 4vh;
+    }
+
+    .hero-logo {
+        max-width: 120px;
+    }
+    
+    .hero-layout {
+        gap: 15px;
+    }
+    
+    .s-hero__content h1 {
+        font-size: clamp(2.5rem, 7vw, 4rem);
+        text-align: center;
+    }
+    
+    .s-hero__content-about {
+        font-size: 1.6rem;
+    }
+}
+
+/* ===================================================================
+ * SERVICES SECTION
+ * ------------------------------------------------------------------- */
+.s-services__services {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.s-services__services .item-service {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.s-services__services .item-service p {
+    flex-grow: 1;
+}
+
+/* ===================================================================
+ * CONNECT SECTION - LinkedIn
+ * ------------------------------------------------------------------- */
+.linkedin-link {
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.linkedin-link:hover {
+    transform: translateY(-5px);
+}
+
+.linkedin-logo {
+    width: 150px;
+    height: auto;
+    filter: brightness(0.4);
+    transition: filter 0.3s ease, transform 0.3s ease;
+}
+
+.linkedin-link:hover .linkedin-logo {
+    filter: brightness(1);
+}
+
+/* ===================================================================
+ * TEAM SECTION - 3D Carousel
+ * ================================================================ */
+.s-team {
+    padding: var(--vspace-4) 0;
+    background-color: var(--color-bg);
+    overflow: hidden;
+}
+
+/* Carousel Container */
+.carousel-3d-container {
+    position: relative;
+    width: 100%;
+    height: 650px;
+    perspective: 2000px;
+    margin: var(--vspace-3) auto;
+    max-width: 1400px;
+}
+
+/* 3D Scene */
+.carousel-3d-scene {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+}
+
+/* Individual Cards */
+.carousel-card {
+    position: absolute;
+    width: 380px;
+    height: 520px;
+    left: 50%;
+    top: 50%;
+    transform-style: preserve-3d;
+    cursor: pointer;
+}
+
+/* Team Card Styling */
+.team-card {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.3),
+        0 0 0 1px rgba(255, 255, 255, 0.1) inset;
+    padding: 3rem 2.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    transform: scale(0.85);
+    filter: brightness(0.6) blur(2px);
+}
+
+.team-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(138, 79, 52, 0.1), rgba(138, 79, 52, 0.05));
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    z-index: 0;
+}
+
+/* Active Card Effects */
+.carousel-card.active .team-card {
+    transform: scale(1);
+    filter: brightness(1.2) blur(0);
+}
+
+.carousel-card.active .team-card::before {
+    opacity: 1;
+}
+
+/* Team Member Photo */
+.team-card__photo {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 4px solid rgba(138, 79, 52, 0.6);
+    box-shadow: 
+        0 4px 20px rgba(138, 79, 52, 0.4),
+        0 0 0 2px rgba(255, 255, 255, 0.1);
+    margin-bottom: 2rem;
+    position: relative;
+    z-index: 1;
+    background: linear-gradient(135deg, #222F39, #3C4C52);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.team-card__photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.carousel-card.active .team-card__photo {
+    border-color: var(--color-2);
+    box-shadow: 
+        0 8px 40px rgba(138, 79, 52, 0.7),
+        0 0 0 3px rgba(255, 255, 255, 0.3);
+    transform: scale(1.08);
+}
+
+.carousel-card.active .team-card__photo img {
+    transform: scale(1.12);
+}
+
+/* Team Card Text */
+.team-card__name {
+    font-family: var(--font-2);
+    font-size: 2.4rem;
+    font-weight: 700;
+    color: var(--color-1);
+    margin: 0 0 0.5rem 0;
+    position: relative;
+    z-index: 1;
+    transition: all 0.4s ease;
+}
+
+.team-card__role {
+    font-family: var(--font-1);
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--color-2);
+    margin: 0 0 1.5rem 0;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    position: relative;
+    z-index: 1;
+}
+
+.team-card__bio {
+    font-family: var(--font-1);
+    font-size: 1.5rem;
+    line-height: 1.7;
+    color: rgba(243, 243, 242, 0.8);
+    margin: 0 0 2rem 0;
+    position: relative;
+    z-index: 1;
+    flex-grow: 1;
+}
+
+/* Active Card Text Enhancement */
+.carousel-card.active .team-card__name {
+    color: var(--color-1);
+    text-shadow: 0 2px 10px rgba(138, 79, 52, 0.3);
+}
+
+.carousel-card.active .team-card__role {
+    color: var(--color-2);
+    text-shadow: 0 1px 5px rgba(138, 79, 52, 0.2);
+}
+
+.carousel-card.active .team-card__bio {
+    color: rgba(243, 243, 242, 0.95);
+}
+
+/* Social Icons */
+.team-card__social {
+    display: flex;
+    gap: 1.5rem;
+    position: relative;
+    z-index: 1;
+}
+
+.team-card__social a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: rgba(138, 79, 52, 0.3);
+    border: 1px solid rgba(138, 79, 52, 0.5);
+    color: var(--color-1);
+    font-size: 1.8rem;
+    transition: all 0.3s ease;
+}
+
+.team-card__social a:hover,
+.team-card__social a:focus {
+    background: var(--color-2);
+    border-color: var(--color-2);
+    color: white;
+    transform: translateY(-3px) scale(1.1);
+    box-shadow: 0 6px 20px rgba(138, 79, 52, 0.5);
+}
+
+/* Carousel Navigation */
+.carousel-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 100;
+    width: 60px;
+    height: 60px;
+    border: none;
+    border-radius: 50%;
+    background: rgba(138, 79, 52, 0.8);
+    backdrop-filter: blur(10px);
+    color: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.carousel-nav:hover,
+.carousel-nav:focus {
+    background: var(--color-2);
+    transform: translateY(-50%) scale(1.1);
+    box-shadow: 0 6px 30px rgba(138, 79, 52, 0.5);
+}
+
+.carousel-nav svg {
+    width: 28px;
+    height: 28px;
+}
+
+.carousel-nav--prev {
+    left: 5%;
+}
+
+.carousel-nav--next {
+    right: 5%;
+}
+
+/* Progress Indicators */
+.carousel-indicators {
+    position: absolute;
+    bottom: -60px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 12px;
+    z-index: 100;
+}
+
+.indicator {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(243, 243, 242, 0.3);
+    border: 2px solid rgba(138, 79, 52, 0.5);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.indicator:hover {
+    background: rgba(138, 79, 52, 0.6);
+    transform: scale(1.2);
+}
+
+.indicator.active {
+    background: var(--color-2);
+    border-color: var(--color-2);
+    width: 32px;
+    border-radius: 6px;
+    box-shadow: 0 0 15px rgba(138, 79, 52, 0.8);
+    transform: scale(1.1);
+}
+
+/* ===================================================================
+ * RESPONSIVE - Team Carousel
+ * ------------------------------------------------------------------- */
+@media screen and (max-width: 1200px) {
+    .carousel-3d-container {
+        height: 600px;
+    }
+    
+    .carousel-card {
+        width: 340px;
+        height: 480px;
+    }
+    
+    .carousel-nav {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .carousel-nav svg {
+        width: 24px;
+        height: 24px;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .carousel-3d-container {
+        height: 550px;
+        perspective: 1500px;
+    }
+    
+    .carousel-card {
+        width: 300px;
+        height: 440px;
+    }
+    
+    .team-card {
+        padding: 2.5rem 2rem;
+    }
+    
+    .team-card__photo {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .team-card__name {
+        font-size: 2rem;
+    }
+    
+    .team-card__bio {
+        font-size: 1.4rem;
+    }
+    
+    .carousel-nav--prev {
+        left: 2%;
+    }
+    
+    .carousel-nav--next {
+        right: 2%;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .carousel-3d-container {
+        height: 500px;
+        perspective: 1000px;
+    }
+    
+    .carousel-card {
+        width: 280px;
+        height: 420px;
+    }
+    
+    .team-card {
+        padding: 2rem 1.5rem;
+    }
+    
+    .team-card__photo {
+        width: 100px;
+        height: 100px;
+        margin-bottom: 1.5rem;
+    }
+    
+    .team-card__name {
+        font-size: 1.8rem;
+    }
+    
+    .team-card__role {
+        font-size: 1.2rem;
+    }
+    
+    .team-card__bio {
+        font-size: 1.3rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .team-card__social a {
+        width: 40px;
+        height: 40px;
+        font-size: 1.6rem;
+    }
+    
+    .carousel-nav {
+        width: 45px;
+        height: 45px;
+    }
+    
+    .carousel-nav svg {
+        width: 20px;
+        height: 20px;
+    }
+    
+    .carousel-indicators {
+        bottom: -60px;
+        gap: 8px;
+    }
+    
+    .indicator {
+        width: 10px;
+        height: 10px;
+    }
+    
+    .indicator.active {
+        width: 24px;
+    }
+}
+
+/* ===================================================================
+ * FOOTER
+ * ------------------------------------------------------------------- */
+.s-footer {
+    background-color: var(--color-bg);
+    padding-top: calc(4 * var(--space));
+    padding-bottom: var(--vspace-2);
+}
+
+.s-footer__content {
+    padding-bottom: var(--vspace-2);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.s-footer h4 {
+    color: var(--color-1);
+    margin-bottom: var(--vspace-0_75);
+    font-size: var(--text-md);
+}
+
+.s-footer__list {
+    list-style: none;
+    margin: 0;
+}
+
+.s-footer__list li {
+    margin-bottom: var(--vspace-0_25);
+}
+
+.s-footer__list a {
+    color: var(--color-text);
+    transition: color 0.3s ease;
+}
+
+.s-footer__list a:hover,
+.s-footer__list a:focus {
+    color: var(--color-1-light);
+}
+
+.s-footer__bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: var(--vspace-1_5);
+}
+
+.ss-copyright {
+    font-size: var(--text-sm);
+    color: var(--color-gray-8);
+}
+
+.ss-copyright span::after {
+    content: "|";
+    margin: 0 1rem;
+}
+
+.ss-copyright span:last-child::after {
+    display: none;
+}
+
+.ss-go-top {
+    position: fixed;
+    bottom: 3rem;
+    right: 3rem;
+    z-index: 500;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.ss-go-top.link-is-visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.ss-go-top a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 6rem;
+    height: 6rem;
+    background-color: var(--color-1);
+    border-radius: 50%;
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.ss-go-top a:hover,
+.ss-go-top a:focus {
+    background-color: var(--color-1-light);
+    transform: translateY(-3px);
+}
+
+.ss-go-top a svg {
+    width: 2rem;
+    height: 2rem;
+}
+
+.ss-go-top a svg path {
+    fill: white;
+}
+
+/* ===================================================================
+ * MOBILE MENU
+ * ------------------------------------------------------------------- */
+@media screen and (max-width: 900px) {
+    .menu-is-open .s-header__content {
+        background-color: rgba(12, 11, 12, 0.98);
+        backdrop-filter: blur(10px);
+    }
+}
+
+/* ===================================================================
+ * ACCESSIBILITY
+ * ------------------------------------------------------------------- */
+a:focus,
+button:focus {
+    outline: 2px solid var(--color-1);
+    outline-offset: 2px;
+}
+
+/* Smooth transitions for interactive elements */
+a,
+button,
+.btn {
+    transition: all 0.3s ease;
+}
+
+/* ===================================================================
+ * PERFORMANCE - Reduce animations on mobile
+ * ------------------------------------------------------------------- */
+@media screen and (max-width: 600px) {
+    /* Keep carousel animations but reduce others */
+    *:not(.carousel-card):not(.carousel-3d-scene):not(.team-card):not(.team-card__photo) {
+        animation-duration: 0.01ms;
+        animation-iteration-count: 1;
+        transition-duration: 0.1s;
+    }
+}
