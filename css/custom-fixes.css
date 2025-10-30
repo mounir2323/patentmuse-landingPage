@@ -1,85 +1,127 @@
 /* ===================================================================
- * # Custom Fixes for PatentMuse Landing Page
+ * # Custom Fixes for PatentMuse Landing Page - OPTIMIZED VERSION
  * ------------------------------------------------------------------- */
 
-/* Fix header to always stay transparent and visible */
+/* ===================================================================
+ * HEADER - Fixed & Transparent
+ * ------------------------------------------------------------------- */
 .s-header {
-    position: fixed !important;
-    background-color: rgba(34, 47, 57, 0.85) !important;
-    backdrop-filter: blur(10px) !important;
-    -webkit-backdrop-filter: blur(10px) !important;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5) !important;
+    position: fixed;
+    background-color: rgba(34, 47, 57, 0.85);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
 }
 
-/* Ensure header content stays visible */
-.s-header,
+/* Ensure header stays visible in all states */
 .s-header.sticky,
 .s-header.offset,
 .s-header.scrolling {
-    opacity: 1 !important;
-    visibility: visible !important;
-    transform: translateY(0) !important;
-    background-color: rgba(34, 47, 57, 0.85) !important;
-    backdrop-filter: blur(10px) !important;
-    -webkit-backdrop-filter: blur(10px) !important;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5) !important;
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    background-color: rgba(34, 47, 57, 0.85);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
 }
 
-/* Keep button style consistent */
+/* Header button styling */
 .s-header__content .btn,
 .s-header.sticky .s-header__content .btn {
-    background-color: #3C4C52 !important;
-    border-color: #3C4C52 !important;
-    color: white !important;
+    background-color: #3C4C52;
+    border-color: #3C4C52;
+    color: white;
 }
 
 .s-header__content .btn:hover,
 .s-header__content .btn:focus,
 .s-header.sticky .s-header__content .btn:hover,
 .s-header.sticky .s-header__content .btn:focus {
-    background-color: #2C3C42 !important;
-    border-color: #2C3C42 !important;
-    color: white !important;
+    background-color: #2C3C42;
+    border-color: #2C3C42;
+    color: white;
 }
 
 .s-header__content .btn svg path,
 .s-header__content .btn:hover svg path,
 .s-header__content .btn:focus svg path {
-    fill: white !important;
+    fill: white;
 }
 
-/* Keep navigation link colors consistent */
+/* Navigation link colors */
 .s-header__nav a,
 .s-header.sticky .s-header__nav a {
-    color: var(--color-gray-8) !important;
+    color: var(--color-gray-8);
 }
 
 .s-header__nav a:hover,
 .s-header__nav a:focus,
 .s-header.sticky .s-header__nav a:hover,
 .s-header.sticky .s-header__nav a:focus {
-    color: white !important;
+    color: white;
 }
 
-/* Hero layout improvements */
+/* ===================================================================
+ * HERO SECTION - Layout with Logo
+ * ------------------------------------------------------------------- */
+.s-hero {
+    position: relative;
+    padding-top: 15vh;
+    padding-bottom: 10vh;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+}
+
+.s-hero__content {
+    position: relative;
+    z-index: 10;
+    padding-bottom: 5vh;
+}
+
+.s-hero .row,
+.s-hero .column {
+    width: 100%;
+}
+
+/* Hero background - always full screen */
+.s-hero__bg {
+    width: 100%;
+    height: 100%;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: var(--color-bg);
+    position: absolute;
+    z-index: 1;
+}
+
+/* Hide gradient overlay */
+.s-hero__bg::after,
+.s-hero__bg .gradient-overlay {
+    display: none;
+    opacity: 0;
+    visibility: hidden;
+}
+
+/* Hero layout with logo */
 .hero-layout {
-    display: flex !important;
+    display: flex;
     justify-content: space-between;
     align-items: center;
     gap: 40px;
-    width: 100% !important;
+    width: 100%;
     position: relative;
     z-index: 2;
-    overflow: visible !important;
-    margin-top: 0 !important;
-    margin-bottom: 0 !important;
 }
 
 .hero-content-wrapper {
     flex: 1 1 auto;
     max-width: 800px;
     min-width: 0;
-    overflow: visible !important;
     width: 100%;
 }
 
@@ -89,14 +131,13 @@
     align-items: center;
     justify-content: flex-end;
     min-width: 250px;
-    overflow: visible !important;
+    z-index: 3;
 }
 
 .hero-logo {
     max-width: 250px;
     width: 100%;
     height: auto;
-    margin-top: 0 !important;
     transition: transform 0.3s ease;
     display: block;
 }
@@ -105,223 +146,7 @@
     transform: scale(1.05);
 }
 
-/* Assurer que le hero section ne déborde pas */
-.s-hero {
-    overflow: hidden !important;
-    position: relative;
-    padding-top: 5vh !important;
-    padding-bottom: 10vh !important;
-    min-height: 100vh !important;
-    display: flex !important;
-    align-items: center !important;
-}
-
-.s-hero__content {
-    overflow: visible !important;
-    position: relative;
-    z-index: 10;
-    padding-bottom: 00vh !important;
-}
-
-.s-hero .row {
-    overflow: visible !important;
-    width: 100% !important;
-}
-
-.s-hero .column {
-    overflow: visible !important;
-    width: 100% !important;
-}
-
-/* Background toujours plein écran */
-.s-hero__bg {
-    width: 100% !important;
-    height: 100% !important;
-    top: 0 !important;
-    right: 0 !important;
-    bottom: 0 !important;
-    left: 0 !important;
-    background-color: var(--color-bg) !important;
-    position: absolute !important;
-}
-
-/* Masquer le gradient overlay */
-.s-hero__bg::after,
-.s-hero__bg .gradient-overlay {
-    display: none !important;
-    opacity: 0 !important;
-    visibility: hidden !important;
-}
-
-/* Empêcher le background de changer de taille */
-@media screen and (max-width: 900px) {
-    .s-hero__bg {
-        width: 100% !important;
-        height: 100% !important;
-        top: 0 !important;
-        right: 0 !important;
-        bottom: 0 !important;
-        left: 0 !important;
-    }
-}
-
-@media screen and (max-width: 600px) {
-    .s-hero__bg {
-        width: 100% !important;
-        height: 100% !important;
-        top: 0 !important;
-        right: 0 !important;
-        bottom: 0 !important;
-        left: 0 !important;
-    }
-}
-
-/* Responsive adjustments */
-@media screen and (max-width: 1200px) {
-    .hero-logo {
-        max-width: 200px;
-        margin-top: 40px;
-    }
-    
-    .hero-content-wrapper {
-        max-width: 700px;
-    }
-}
-
-@media screen and (max-width: 900px) {
-    .hero-layout {
-        flex-direction: column;
-        gap: 30px;
-        align-items: center;
-        width: 100% !important;
-        margin-top: 0 !important;
-    }
-    
-    .hero-content-wrapper {
-        max-width: 100%;
-        width: 100% !important;
-        overflow: visible !important;
-    }
-    
-    .hero-logo-wrapper {
-        width: 100%;
-        justify-content: center;
-        order: -1; /* Met le logo en premier sur mobile */
-        min-width: auto;
-    }
-    
-    .hero-logo {
-        max-width: 180px;
-        margin-top: 0 !important;
-    }
-    
-    /* S'assurer que le background reste plein écran */
-    .s-hero__bg {
-        width: 100% !important;
-        height: 100% !important;
-        top: 0 !important;
-        right: 0 !important;
-        bottom: 0 !important;
-        left: 0 !important;
-    }
-    
-    /* Assurer que le texte est visible */
-    .s-hero__content h1,
-    .s-hero__content-about {
-        width: 100% !important;
-        overflow: visible !important;
-    }
-    
-    /* Ajuster le padding sur mobile */
-    .s-hero {
-        padding-top: 12vh !important;
-        padding-bottom: 3vh !important;
-    }
-}
-
-@media screen and (max-width: 600px) {
-    .hero-layout {
-        gap: 20px;
-        padding: 0;
-        width: 100% !important;
-    }
-    
-    .hero-logo {
-        max-width: 150px;
-        margin-top: 0 !important;
-    }
-    
-    .s-hero__content-about {
-        text-align: center;
-        padding-left: 0 !important;
-        padding-right: 0 !important;
-        width: 100% !important;
-    }
-    
-    .s-hero__content-about footer {
-        text-align: center;
-    }
-    
-    .s-hero__content h1 {
-        text-align: center;
-        width: 100% !important;
-    }
-    
-    /* Réduire le padding pour éviter le débordement */
-    .s-hero__content {
-        padding-left: 2rem;
-        padding-right: 2rem;
-    }
-    
-    .hero-content-wrapper {
-        width: 100% !important;
-        max-width: 100% !important;
-    }
-    
-    /* Ajuster le padding sur petit mobile */
-    .s-hero {
-        padding-top: 10vh !important;
-        padding-bottom: 2vh !important;
-    }
-}
-
-@media screen and (max-width: 400px) {
-    .hero-logo {
-        max-width: 120px;
-        margin-top: 0 !important;
-    }
-    
-    .hero-layout {
-        gap: 15px;
-    }
-    
-    .s-hero__content h1 {
-        font-size: 24vw !important;
-    }
-    
-    .s-hero__content-about {
-        font-size: 2rem !important;
-    }
-    
-    /* Ajuster le padding sur très petit mobile */
-    .s-hero {
-        padding-top: 8vh !important;
-        padding-bottom: 1vh !important;
-    }
-}
-
-@media screen and (max-width: 400px) {
-    .hero-logo {
-        max-width: 120px;
-        margin-top: 0;
-    }
-    
-    .s-hero__content h1 {
-        text-align: center;
-    }
-}
-
-/* Improve social icons */
+/* Social icons improvements */
 .s-hero__content-social a {
     position: relative;
     transition: all 0.3s ease;
@@ -344,7 +169,118 @@
     transform: translateX(-50%) scaleX(1);
 }
 
-/* Services section improvements */
+/* ===================================================================
+ * RESPONSIVE - Hero Section
+ * ------------------------------------------------------------------- */
+@media screen and (max-width: 1200px) {
+    .hero-logo {
+        max-width: 200px;
+    }
+    
+    .hero-content-wrapper {
+        max-width: 700px;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .s-hero {
+        padding-top: 14vh;
+        padding-bottom: 8vh;
+    }
+
+    .hero-layout {
+        flex-direction: column;
+        gap: 30px;
+        align-items: center;
+        width: 100%;
+    }
+    
+    .hero-content-wrapper {
+        max-width: 100%;
+        width: 100%;
+    }
+    
+    .hero-logo-wrapper {
+        width: 100%;
+        justify-content: center;
+        order: -1;
+        min-width: auto;
+    }
+    
+    .hero-logo {
+        max-width: 180px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .s-hero {
+        padding-top: 12vh;
+        padding-bottom: 6vh;
+    }
+
+    .hero-layout {
+        gap: 20px;
+        padding: 0;
+    }
+    
+    .hero-logo {
+        max-width: 150px;
+    }
+    
+    .s-hero__content-about {
+        text-align: center;
+        padding-left: 0;
+        padding-right: 0;
+        width: 100%;
+    }
+    
+    .s-hero__content-about footer {
+        text-align: center;
+    }
+    
+    .s-hero__content h1 {
+        text-align: center;
+        font-size: clamp(3rem, 8vw, 5rem);
+    }
+    
+    .s-hero__content {
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+    
+    .hero-content-wrapper {
+        width: 100%;
+        max-width: 100%;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .s-hero {
+        padding-top: 10vh;
+        padding-bottom: 4vh;
+    }
+
+    .hero-logo {
+        max-width: 120px;
+    }
+    
+    .hero-layout {
+        gap: 15px;
+    }
+    
+    .s-hero__content h1 {
+        font-size: clamp(2.5rem, 7vw, 4rem);
+        text-align: center;
+    }
+    
+    .s-hero__content-about {
+        font-size: 1.6rem;
+    }
+}
+
+/* ===================================================================
+ * SERVICES SECTION
+ * ------------------------------------------------------------------- */
 .s-services__services {
     display: flex;
     flex-wrap: wrap;
@@ -360,7 +296,9 @@
     flex-grow: 1;
 }
 
-/* LinkedIn logo hover effect */
+/* ===================================================================
+ * CONNECT SECTION - LinkedIn
+ * ------------------------------------------------------------------- */
 .linkedin-link {
     display: inline-block;
     transition: transform 0.3s ease;
@@ -381,314 +319,16 @@
     filter: brightness(1);
 }
 
-/* Footer improvements */
-.s-footer {
-    background-color: var(--color-bg);
-    padding-top: calc(4 * var(--space));
-    padding-bottom: var(--vspace-2);
-}
-
 /* ===================================================================
- * # Team Section
- * ------------------------------------------------------------------- */
-.s-team {
-    background-color: var(--color-bg);
-    padding-top: calc(6 * var(--space));
-    padding-bottom: calc(6 * var(--space));
-}
-
-.s-team .display-1 {
-    margin-bottom: var(--vspace-2);
-}
-
-/* Team Members Grid */
-.s-team__members {
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.s-team__members .item-team {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-}
-
-/* Team Member Card */
-.team-member {
-    background-color: rgba(60, 76, 82, 0.3);
-    border-radius: 8px;
-    padding: var(--vspace-1_5);
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    transition: all 0.3s ease;
-    border: 1px solid rgba(138, 79, 52, 0.2);
-}
-
-.team-member:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-    border-color: var(--color-2);
-}
-
-/* Team Member Photo */
-.team-member__photo {
-    width: 100%;
-    height: 250px;
-    overflow: hidden;
-    border-radius: 8px;
-    margin-bottom: var(--vspace-1);
-    background-color: var(--color-gray-15);
-}
-
-.team-member__photo img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.3s ease;
-}
-
-.team-member:hover .team-member__photo img {
-    transform: scale(1.05);
-}
-
-/* Team Member Info */
-.team-member__info {
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-}
-
-.team-member__info .item-title {
-    color: var(--color-1);
-    margin-bottom: var(--vspace-0_25);
-    font-size: var(--text-lg);
-    text-align: center;
-}
-
-.team-member__role {
-    color: var(--color-2);
-    font-family: var(--font-2);
-    font-weight: 600;
-    font-size: var(--text-sm);
-    text-transform: uppercase;
-    letter-spacing: 0.2em;
-    text-align: center;
-    margin-bottom: var(--vspace-0_75);
-}
-
-.team-member__bio {
-    color: var(--color-text);
-    font-size: var(--text-size);
-    line-height: var(--vspace-1);
-    text-align: center;
-    margin-bottom: var(--vspace-1);
-    flex-grow: 1;
-}
-
-/* Team Member Social Links */
-.team-member__social {
-    display: flex;
-    justify-content: center;
-    gap: 1.5rem;
-    margin-top: auto;
-}
-
-.team-member__social a {
-    color: var(--color-text);
-    font-size: 2rem;
-    transition: all 0.3s ease;
-}
-
-.team-member__social a:hover,
-.team-member__social a:focus {
-    color: var(--color-1);
-    transform: translateY(-3px);
-}
-
-/* Responsive Team Section */
-@media screen and (max-width: 1200px) {
-    .s-team {
-        padding-top: calc(5 * var(--space));
-        padding-bottom: calc(5 * var(--space));
-    }
-}
-
-@media screen and (max-width: 800px) {
-    .team-member__photo {
-        height: 220px;
-    }
-}
-
-@media screen and (max-width: 600px) {
-    .team-member {
-        padding: var(--vspace-1);
-    }
-    
-    .team-member__photo {
-        height: 200px;
-    }
-    
-    .team-member__info .item-title {
-        font-size: var(--text-md);
-    }
-}
-
-@media screen and (max-width: 400px) {
-    .s-team {
-        padding-top: var(--vspace-4);
-        padding-bottom: var(--vspace-4);
-    }
-    
-    .team-member__photo {
-        height: 180px;
-    }
-}
-
-/* Footer improvements */
-.s-footer {
-    background-color: var(--color-bg);
-    padding-top: calc(4 * var(--space));
-    padding-bottom: var(--vspace-2);
-}
-
-.s-footer__content {
-    padding-bottom: var(--vspace-2);
-    border-bottom: 1px solid var(--color-border);
-}
-
-.s-footer h4 {
-    color: var(--color-1);
-    margin-bottom: var(--vspace-0_75);
-    font-size: var(--text-md);
-}
-
-.s-footer__list {
-    list-style: none;
-    margin: 0;
-}
-
-.s-footer__list li {
-    margin-bottom: var(--vspace-0_25);
-}
-
-.s-footer__list a {
-    color: var(--color-text);
-    transition: color 0.3s ease;
-}
-
-.s-footer__list a:hover,
-.s-footer__list a:focus {
-    color: var(--color-1-light);
-}
-
-.s-footer__bottom {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding-top: var(--vspace-1_5);
-}
-
-.ss-copyright {
-    font-size: var(--text-sm);
-    color: var(--color-gray-8);
-}
-
-.ss-copyright span::after {
-    content: "|";
-    margin: 0 1rem;
-}
-
-.ss-copyright span:last-child::after {
-    display: none;
-}
-
-.ss-go-top {
-    position: fixed;
-    bottom: 3rem;
-    right: 3rem;
-    z-index: 500;
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.3s ease;
-}
-
-.ss-go-top.link-is-visible {
-    opacity: 1;
-    visibility: visible;
-}
-
-.ss-go-top a {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 6rem;
-    height: 6rem;
-    background-color: var(--color-1);
-    border-radius: 50%;
-    color: white;
-    transition: all 0.3s ease;
-}
-
-.ss-go-top a:hover,
-.ss-go-top a:focus {
-    background-color: var(--color-1-light);
-    transform: translateY(-3px);
-}
-
-.ss-go-top a svg {
-    width: 2rem;
-    height: 2rem;
-}
-
-.ss-go-top a svg path {
-    fill: white;
-}
-
-/* Mobile menu improvements */
-@media screen and (max-width: 900px) {
-    .menu-is-open .s-header__content {
-        background-color: rgba(12, 11, 12, 0.98);
-        backdrop-filter: blur(10px);
-    }
-}
-
-/* Accessibility improvements */
-a:focus,
-button:focus {
-    outline: 2px solid var(--color-1);
-    outline-offset: 2px;
-}
-
-/* Smooth transitions for all interactive elements */
-a,
-button,
-.btn {
-    transition: all 0.3s ease;
-}
-
-/* Remove animations on mobile for better performance */
-@media screen and (max-width: 600px) {
-    *:not(.carousel-card):not(.carousel-3d-scene),
-    *:not(.carousel-card):not(.carousel-3d-scene)::before,
-    *:not(.carousel-card):not(.carousel-3d-scene)::after {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-    }
-}
-
-/* ================================================================
-   3D CAROUSEL TEAM SECTION
-   ================================================================ */
-
-/* Container principal */
+ * TEAM SECTION - 3D Carousel
+ * ================================================================ */
 .s-team {
     padding: var(--vspace-4) 0;
     background-color: var(--color-bg);
     overflow: hidden;
 }
 
+/* Carousel Container */
 .carousel-3d-container {
     position: relative;
     width: 100%;
@@ -698,16 +338,15 @@ button,
     max-width: 1400px;
 }
 
-/* Scène 3D */
+/* 3D Scene */
 .carousel-3d-scene {
     position: relative;
     width: 100%;
     height: 100%;
     transform-style: preserve-3d;
-    /* Transition contrôlée par JavaScript pour snap fluide */
 }
 
-/* Cartes individuelles */
+/* Individual Cards */
 .carousel-card {
     position: absolute;
     width: 380px;
@@ -716,10 +355,9 @@ button,
     top: 50%;
     transform-style: preserve-3d;
     cursor: pointer;
-    /* Pas de transition ici - les effets sont appliqués directement */
 }
 
-/* Card de membre */
+/* Team Card Styling */
 .team-card {
     width: 100%;
     height: 100%;
@@ -756,7 +394,7 @@ button,
     z-index: 0;
 }
 
-/* Carte active - zoom + luminosité + netteté */
+/* Active Card Effects */
 .carousel-card.active .team-card {
     transform: scale(1);
     filter: brightness(1.2) blur(0);
@@ -766,7 +404,7 @@ button,
     opacity: 1;
 }
 
-/* Photo membre */
+/* Team Member Photo */
 .team-card__photo {
     width: 140px;
     height: 140px;
@@ -805,7 +443,7 @@ button,
     transform: scale(1.12);
 }
 
-/* Texte */
+/* Team Card Text */
 .team-card__name {
     font-family: var(--font-2);
     font-size: 2.4rem;
@@ -840,7 +478,22 @@ button,
     flex-grow: 1;
 }
 
-/* Social icons */
+/* Active Card Text Enhancement */
+.carousel-card.active .team-card__name {
+    color: var(--color-1);
+    text-shadow: 0 2px 10px rgba(138, 79, 52, 0.3);
+}
+
+.carousel-card.active .team-card__role {
+    color: var(--color-2);
+    text-shadow: 0 1px 5px rgba(138, 79, 52, 0.2);
+}
+
+.carousel-card.active .team-card__bio {
+    color: rgba(243, 243, 242, 0.95);
+}
+
+/* Social Icons */
 .team-card__social {
     display: flex;
     gap: 1.5rem;
@@ -871,7 +524,7 @@ button,
     box-shadow: 0 6px 20px rgba(138, 79, 52, 0.5);
 }
 
-/* Navigation arrows */
+/* Carousel Navigation */
 .carousel-nav {
     position: absolute;
     top: 50%;
@@ -912,10 +565,10 @@ button,
     right: 5%;
 }
 
-/* Indicateurs de progression */
+/* Progress Indicators */
 .carousel-indicators {
     position: absolute;
-    bottom: -160px;
+    bottom: -60px;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
@@ -947,35 +600,9 @@ button,
     transform: scale(1.1);
 }
 
-/* États des cartes selon leur position */
-.carousel-card.active {
-    z-index: 50;
-}
-
-/* Transitions smooth pour tout le contenu */
-.team-card__name,
-.team-card__role,
-.team-card__bio,
-.team-card__social {
-    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-/* Amélioration de la visibilité de la carte active */
-.carousel-card.active .team-card__name {
-    color: var(--color-1);
-    text-shadow: 0 2px 10px rgba(138, 79, 52, 0.3);
-}
-
-.carousel-card.active .team-card__role {
-    color: var(--color-2);
-    text-shadow: 0 1px 5px rgba(138, 79, 52, 0.2);
-}
-
-.carousel-card.active .team-card__bio {
-    color: rgba(243, 243, 242, 0.95);
-}
-
-/* Responsive Design */
+/* ===================================================================
+ * RESPONSIVE - Team Carousel
+ * ------------------------------------------------------------------- */
 @media screen and (max-width: 1200px) {
     .carousel-3d-container {
         height: 600px;
@@ -1096,5 +723,145 @@ button,
     
     .indicator.active {
         width: 24px;
+    }
+}
+
+/* ===================================================================
+ * FOOTER
+ * ------------------------------------------------------------------- */
+.s-footer {
+    background-color: var(--color-bg);
+    padding-top: calc(4 * var(--space));
+    padding-bottom: var(--vspace-2);
+}
+
+.s-footer__content {
+    padding-bottom: var(--vspace-2);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.s-footer h4 {
+    color: var(--color-1);
+    margin-bottom: var(--vspace-0_75);
+    font-size: var(--text-md);
+}
+
+.s-footer__list {
+    list-style: none;
+    margin: 0;
+}
+
+.s-footer__list li {
+    margin-bottom: var(--vspace-0_25);
+}
+
+.s-footer__list a {
+    color: var(--color-text);
+    transition: color 0.3s ease;
+}
+
+.s-footer__list a:hover,
+.s-footer__list a:focus {
+    color: var(--color-1-light);
+}
+
+.s-footer__bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: var(--vspace-1_5);
+}
+
+.ss-copyright {
+    font-size: var(--text-sm);
+    color: var(--color-gray-8);
+}
+
+.ss-copyright span::after {
+    content: "|";
+    margin: 0 1rem;
+}
+
+.ss-copyright span:last-child::after {
+    display: none;
+}
+
+.ss-go-top {
+    position: fixed;
+    bottom: 3rem;
+    right: 3rem;
+    z-index: 500;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.ss-go-top.link-is-visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.ss-go-top a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 6rem;
+    height: 6rem;
+    background-color: var(--color-1);
+    border-radius: 50%;
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.ss-go-top a:hover,
+.ss-go-top a:focus {
+    background-color: var(--color-1-light);
+    transform: translateY(-3px);
+}
+
+.ss-go-top a svg {
+    width: 2rem;
+    height: 2rem;
+}
+
+.ss-go-top a svg path {
+    fill: white;
+}
+
+/* ===================================================================
+ * MOBILE MENU
+ * ------------------------------------------------------------------- */
+@media screen and (max-width: 900px) {
+    .menu-is-open .s-header__content {
+        background-color: rgba(12, 11, 12, 0.98);
+        backdrop-filter: blur(10px);
+    }
+}
+
+/* ===================================================================
+ * ACCESSIBILITY
+ * ------------------------------------------------------------------- */
+a:focus,
+button:focus {
+    outline: 2px solid var(--color-1);
+    outline-offset: 2px;
+}
+
+/* Smooth transitions for interactive elements */
+a,
+button,
+.btn {
+    transition: all 0.3s ease;
+}
+
+/* ===================================================================
+ * PERFORMANCE - Reduce animations on mobile
+ * ------------------------------------------------------------------- */
+@media screen and (max-width: 600px) {
+    /* Keep carousel animations but reduce others */
+    *:not(.carousel-card):not(.carousel-3d-scene):not(.team-card):not(.team-card__photo) {
+        animation-duration: 0.01ms;
+        animation-iteration-count: 1;
+        transition-duration: 0.1s;
     }
 }
